@@ -6,7 +6,7 @@
 /*   By: afaugero <afaugero@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/14 17:15:02 by afaugero          #+#    #+#             */
-/*   Updated: 2025/02/20 11:49:26 by afaugero         ###   ########.fr       */
+/*   Updated: 2025/02/27 10:52:20 by afaugero         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,4 +76,7 @@ void	clean_up_pipex(t_pipex *pipex)
 		close(pipex->fd_infile);
 	if (pipex->fd_outfile > -1)
 		close(pipex->fd_outfile);
+	close(STDOUT_FILENO);
+	close(STDIN_FILENO);
+	close(STDERR_FILENO);
 }

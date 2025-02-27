@@ -6,7 +6,7 @@
 /*   By: afaugero <afaugero@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/25 18:54:40 by afaugero          #+#    #+#             */
-/*   Updated: 2025/02/25 19:09:43 by afaugero         ###   ########.fr       */
+/*   Updated: 2025/02/27 11:29:40 by afaugero         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,6 @@ bool	skip_sep(const char *s, char sep, int *i)
 	while (s[*i] && s[*i] == sep)
 		(*i)++;
 	if (!s[*i])
-		 return (false);
+		return (false);
 	return (true);
 }

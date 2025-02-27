@@ -6,7 +6,7 @@
 /*   By: afaugero <afaugero@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/08 20:05:08 by afaugero          #+#    #+#             */
-/*   Updated: 2025/02/24 18:43:43 by afaugero         ###   ########.fr       */
+/*   Updated: 2025/02/27 11:21:00 by afaugero         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,11 +24,16 @@ static void	handle_write_process(t_pipex *pipex, int pipe_fd[2])
 		if (dup2(pipe_fd[1], STDOUT_FILENO) == -1)
 			handle_dup2_error(pipex, pipe_fd);
 		close(pipe_fd[1]);
-		if (execve(pipex->cmds[0]->path, pipex->cmds[0]->args, NULL) == -1)
+		if (execve(pipex->cmds[0]->path,
+				pipex->cmds[0]->args,
+				pipex->env_path)
+			== -1)
 			handle_exec_error(pipex, 0);
 	}
 	else
 	{
+		close(pipe_fd[0]);
+		close(pipe_fd[1]);
 		clean_up_pipex(pipex);
 		exit(EXIT_SUCCESS);
 	}
@@ -46,10 +51,16 @@ static void	handle_read_process(t_pipex *pipex, int pipe_fd[2])
 		if (dup2(pipex->fd_outfile, STDOUT_FILENO) == -1)
 			handle_dup2_error(pipex, pipe_fd);
 		close(pipex->fd_outfile);
-		if (execve(pipex->cmds[1]->path, pipex->cmds[1]->args, NULL) == -1)
+		if (execve(pipex->cmds[1]->path,
+				pipex->cmds[1]->args,
+				pipex->env_path)
+			== -1)
 			handle_exec_error(pipex, 1);
 	}
+	else
 	{
+		close(pipe_fd[0]);
+		close(pipe_fd[1]);
 		clean_up_pipex(pipex);
 		exit(EXIT_SUCCESS);
 	}

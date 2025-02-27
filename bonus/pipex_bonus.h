@@ -6,7 +6,7 @@
 /*   By: afaugero <afaugero@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/06 10:36:51 by afaugero          #+#    #+#             */
-/*   Updated: 2025/02/25 19:08:46 by afaugero         ###   ########.fr       */
+/*   Updated: 2025/02/27 11:28:44 by afaugero         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,7 +60,7 @@ char	*get_path_wdir(char *cmd);
 char	**ft_split_quotes(char const *s, char c);
 void	set_quote(char c, char *quote);
 int		get_quotes_nb(char *s);
-bool	is_successive_quotes(const char *s, int	i, int j);
+bool	is_successive_quotes(const char *s, int i, int j);
 char	*remove_quotes(char *s);
 void	ft_free_split(char **split, int i);
 bool	skip_sep(const char *s, char sep, int *i);

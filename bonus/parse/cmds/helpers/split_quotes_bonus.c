@@ -6,7 +6,7 @@
 /*   By: afaugero <afaugero@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/24 19:14:53 by afaugero          #+#    #+#             */
-/*   Updated: 2025/02/25 19:09:50 by afaugero         ###   ########.fr       */
+/*   Updated: 2025/02/27 11:30:05 by afaugero         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,10 +46,10 @@ static int	count_words(char const *s, char c)
 		while (s[i] && s[i] == c)
 			i++;
 		if (!s[i])
-			break;
+			break ;
 		j = get_word_size(&s[i], c);
 		if (!(j == 2 && ((s[i] == '\'' && s[i + 1] == '\'')
-			|| (s[i] == '\"' && s[i + 1] == '\"'))))
+					|| (s[i] == '\"' && s[i + 1] == '\"'))))
 			count++;
 		i += j;
 	}

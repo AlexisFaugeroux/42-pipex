@@ -6,7 +6,7 @@
 /*   By: afaugero <afaugero@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/25 18:49:54 by afaugero          #+#    #+#             */
-/*   Updated: 2025/02/25 18:53:41 by afaugero         ###   ########.fr       */
+/*   Updated: 2025/02/27 10:39:25 by afaugero         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,10 +36,10 @@ int	get_quotes_nb(char *s)
 	return (count);
 }
 
-bool	is_successive_quotes(const char *s, int	i, int j)
+bool	is_successive_quotes(const char *s, int i, int j)
 {
 	if (j == 2 && ((s[i] == '\'' && s[i + 1] == '\'')
-		|| (s[i] == '\"' && s[i + 1] == '\"')))
+			|| (s[i] == '\"' && s[i + 1] == '\"')))
 		return (true);
 	return (false);
 }
@@ -66,5 +66,6 @@ char	*remove_quotes(char *s)
 		}
 		i++;
 	}
+	res[j] = 0;
 	return (res);
 }
